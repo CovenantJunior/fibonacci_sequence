@@ -135,6 +135,13 @@ class _SunflowerState extends State<Sunflower> {
                   },
                 ),
               ),
+              ElevatedButton(
+                onPressed: () {
+                  // Navigating to the GitHub repository
+                  launch('https://github.com/CovenantJunior/fibonacci-sequence');
+                },
+                child: const Text('Press Me!'),
+              ),
             ],
           ),
         ),
