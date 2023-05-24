@@ -9,7 +9,7 @@ void main() {
   runApp(FibonacciSequence());
 }
 
-class FibonacciSequencePainter {}
+class FibonacciSequencePainter extends CustomPainter {
   static const seedRadius = 2.0; // Seeds
   static const scaleFactor = 4;  // Scale
   static const tau = math.pi * 2;  // Tau
