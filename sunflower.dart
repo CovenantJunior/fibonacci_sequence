@@ -140,7 +140,7 @@ class _SunflowerState extends State<Sunflower> {
                   // Navigating to the GitHub repository
                   launch('https://github.com/CovenantJunior/fibonacci-sequence');
                 },
-                child: const Text('Press Me!'),
+                child: const Text('GitHub'),
               ),
             ],
           ),
