@@ -149,8 +149,8 @@ class FibonacciSequencePainter {}
                   // Navigating to the GitHub repository
                   launchUrl('https://github.com/CovenantJunior/fibonacci-sequence/blob/master/github.png');
                 },
-                child: Image.network(
-                  'https://github.com/CovenantJunior/fibonacci-sequence/raw/master/github.png',
+                child: Image.asset(
+                  'assets/image.png',
                   width: 100,
                   height: 100,
                 ),
