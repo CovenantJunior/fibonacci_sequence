@@ -23,7 +23,7 @@ class SunflowerPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final center = size.width / 2;
 
-    for (let i = 0; i < seeds; i++) {
+    for (var i = 0; i < seeds; i++) {
       final theta = i * tau / phi;
       final r = math.sqrt(i) * scaleFactor;
       final x = center + r * math.cos(theta);
