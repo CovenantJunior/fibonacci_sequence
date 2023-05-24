@@ -8,7 +8,7 @@ void main() {
   runApp(const FibonacciSequence());
 }
 
-class FibonacciSequencePainter {
+class FibonacciSequencePainter {}
   static const seedRadius = 2.0; // Seeds
   static const scaleFactor = 4;  // Scale
   static const tau = math.pi * 2;  // Tau
@@ -37,19 +37,19 @@ class FibonacciSequencePainter {
   }
 
   @override
-    bool shouldRepaint(FibonacciSequencePainter oldDelegate) {
-      return oldDelegate.seeds != seeds;
-    }
+  bool shouldRepaint(FibonacciSequencePainter oldDelegate) {
+    return oldDelegate.seeds != seeds;
+  }
 
     // Draw a small circle showing a seed centered at (x,y).
-    void drawSeed(Canvas canvas, double x, double y) {
-      final paint = Paint()
-        ..strokeWidth = 2
-        ..style = PaintingStyle.fill
-        ..color = primaryColor;
-      canvas.drawCircle(Offset(x, y), seedRadius, paint);
-    }
+  void drawSeed(Canvas canvas, double x, double y) {
+    final paint = Paint()
+      ..strokeWidth = 2
+      ..style = PaintingStyle.fill
+      ..color = primaryColor;
+    canvas.drawCircle(Offset(x, y), seedRadius, paint);
   }
+
 
   // Define FibonacciSequence
   class FibonacciSequence extends StatefulWidget {
@@ -57,5 +57,89 @@ class FibonacciSequencePainter {
     State<StatefulWidget> createState() {
       return _FibonacciSequence();
     }
+  }
+
+  // Build Widget
+  class _FibonacciSequence extends State<FibonacciSequence> {
+  double seeds = 100.0;
+
+  int get seedCount => seeds.floor();
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData().copyWith(
+        platform: platform,
+        brightness: Brightness.dark,
+        sliderTheme: SliderThemeData.fromPrimaryColors(
+          primaryColor: primaryColor,
+          primaryColorLight: primaryColor,
+          primaryColorDark: primaryColor,
+          valueIndicatorTextStyle: const DefaultTextStyle.fallback().style,
+        ),
+      ),
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("Sunflower"),
+        ),
+        drawer: Drawer(
+          child: ListView(
+            children: const [
+              DrawerHeader(
+                child: Center(
+                  child: Text(
+                    "Sunflower 🌻",
+                    style: TextStyle(fontSize: 32),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        body: Container(
+          constraints: const BoxConstraints.expand(),
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Colors.transparent,
+            ),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Colors.transparent,
+                  ),
+                ),
+                child: SizedBox(
+                  width: 400,
+                  height: 400,
+                  child: CustomPaint(
+                    painter: FibonacciSequencePainter(seedCount),
+                  ),
+                ),
+              ),
+              Text("Showing $seedCount seeds"),
+              ConstrainedBox(
+                constraints: const BoxConstraints.tightFor(width: 300),
+                child: Slider.adaptive(
+                  min: 20,
+                  max: 2000,
+                  value: seeds,
+                  onChanged: (newValue) {
+                    setState(() {
+                      seeds = newValue;
+                    });
+                  },
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
