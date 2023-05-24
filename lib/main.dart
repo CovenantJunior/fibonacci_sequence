@@ -140,7 +140,7 @@ class FibonacciSequencePainter {}
               ElevatedButton(
                 onPressed: () {
                   // Navigating to the GitHub repository
-                  launch('https://github.com/CovenantJunior/fibonacci-sequence');
+                  launchUrl('https://github.com/CovenantJunior/fibonacci-sequence');
                 },
                 child: const Text('GitHub'),
               ),
