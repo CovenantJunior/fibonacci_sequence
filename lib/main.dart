@@ -11,8 +11,8 @@ void main() {
 
 class FibonacciSequencePainter extends CustomPainter {
   static const seedRadius = 2.0; // Seeds
-  static const scaleFactor = 4;  // Scale
-  static const tau = math.pi * 2;  // Tau
+  static const scaleFactor = 4; // Scale
+  static const tau = math.pi * 2; // Tau
   static final phi = (math.sqrt(5) + 1) / 2; // Phi
 
   final int seeds;
@@ -42,7 +42,7 @@ class FibonacciSequencePainter extends CustomPainter {
     return oldDelegate.seeds != seeds;
   }
 
-    // Draw a small circle showing a seed centered at (x,y).
+  // Draw a small circle showing a seed centered at (x,y).
   void drawSeed(Canvas canvas, double x, double y) {
     final paint = Paint()
       ..strokeWidth = 2
@@ -50,18 +50,18 @@ class FibonacciSequencePainter extends CustomPainter {
       ..color = primaryColor;
     canvas.drawCircle(Offset(x, y), seedRadius, paint);
   }
+}
 
-
-  // Define FibonacciSequence
-  class FibonacciSequence extends StatefulWidget {
-    @override
-    State<StatefulWidget> createState() {
-      return _FibonacciSequence();
-    }
+// Define FibonacciSequence
+class FibonacciSequence extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _FibonacciSequence();
   }
+}
 
-  // Build Widget
-  class _FibonacciSequence extends State<FibonacciSequence> {
+// Build Widget
+class _FibonacciSequence extends State<FibonacciSequence> {
   double seeds = 100.0;
 
   int get seedCount => seeds.floor();
@@ -147,7 +147,8 @@ class FibonacciSequencePainter extends CustomPainter {
               InkWell(
                 onTap: () {
                   // Navigating to the GitHub repository
-                  launchUrl('https://github.com/CovenantJunior/fibonacci-sequence/blob/master/github.png');
+                  launchUrl(
+                      'https://github.com/CovenantJunior/fibonacci-sequence/blob/master/github.png');
                 },
                 child: Image.asset(
                   'assets/image.png',
