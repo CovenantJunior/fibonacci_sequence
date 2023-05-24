@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 const Color primaryColor = Color.fromRGBO(51, 153, 255, 1.0);
 // const TargetPlatform platform = TargetPlatform.android;
